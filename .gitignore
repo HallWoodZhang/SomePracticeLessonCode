@@ -1,0 +1,8 @@
+!.gitignore
+
+*.pyc
+*.o
+*.so
+*.lib
+*.dll
+*.jar
