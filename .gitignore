@@ -6,3 +6,8 @@
 *.lib
 *.dll
 *.jar
+*.zip
+
+neu-dataset/*
+*/output/*
+.vscode/*
