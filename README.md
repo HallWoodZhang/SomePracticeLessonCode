@@ -195,3 +195,4 @@ functools.reduce(red, map(lambda x:(x, 1), list(s),d))
 * 文件操作
 * os库
 * random库
+* bs库
