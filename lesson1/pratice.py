@@ -15,7 +15,7 @@ def store_csv(src_dict):
         
 def init_dict(dataset_path = "../neu-dataset/"):
     src_dict = {}
-    for _, dirs, _ in os.walk(dataset_path):
+    for dirs in os.listdir(dataset_path):
         for d in dirs:
             src_dict[d] = []
 

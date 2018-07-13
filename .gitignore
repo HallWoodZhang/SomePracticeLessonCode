@@ -7,6 +7,8 @@
 *.dll
 *.jar
 *.zip
+*.csv
+*.tar*
 
 neu-dataset/*
 */output/*
