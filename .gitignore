@@ -9,7 +9,11 @@
 *.zip
 *.csv
 *.tar*
+*.log
+*.xml
 
 neu-dataset/*
 */output/*
 .vscode/*
+*.directory/*
+*.idea/*

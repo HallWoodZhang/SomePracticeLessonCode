@@ -7,12 +7,15 @@
 * #coding=utf-8 可以用来规定文件编码
 * 单引号和双引号的区别
 
-1. [x] homework
-2. [x] basic content
+* [x] homework
+* [x] basic content
 
 ## lesson 2
 
 #### python datastruct
+
+* [x] homework
+* [x] basic content
 
 * list的切片和步长
 
@@ -196,3 +199,49 @@ functools.reduce(red, map(lambda x:(x, 1), list(s),d))
 * os库
 * random库
 * bs库
+
+## lesson 3
+
+* numpy速度比较块
+
+```python
+import time
+
+import numpy as np
+
+def normal():
+    start = time.time()
+    tot = 0
+    l = [i for i in range(1, 1001)]
+    for i in l:
+        tot += i**2 + i**3
+
+    stop = time.time()
+    print("tot for res: ", tot)
+    print("Time span: ", stop - start)
+
+
+def np_method():
+    start = time.time()
+    tot = 0
+    l = [i for i in range(1, 1001)]
+    ln = np.array(l).astype(np.int64)
+    tot += np.sum(ln**2)
+    tot += np.sum(ln**3)
+    print("tot for res: ", tot)
+    print("Time span: ", time.time() - start)
+
+
+if __name__ == "__main__":
+    normal()
+    np_method()
+```
+
+```
+tot for res:  250834083500
+Time span:  0.0004439353942871094
+tot for res:  250834083500
+Time span:  0.00015163421630859375
+```
+
+* 
