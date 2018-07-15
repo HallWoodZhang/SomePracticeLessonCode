@@ -99,6 +99,8 @@ def pratice3():
 #     return ED.shape[0] - np.mean(ED)
 
 def dist(l, r):
+    if l.shape[0] != r.shape[0]:
+        return 100000
     return np.sqrt(np.sum(np.square(l - r)))
 
 def pratice4():
@@ -140,14 +142,14 @@ def pratice4():
 
     s = set()
 
-    # for i in range(len(img_list)):
-    #     if i >= len(img_list):
-    #         break
-    #     if i in s:
-    #         continue
-    #     for j in range(len(img_list[i+1:])):
-    #         if img_dist(img_dir+img_list[i], img_dir+img_list[i+j]) < 10:
-    #             s.add(j)
+    i = 0
+    while i < len(img_list):
+        j = 1
+        while i + j < len(img_list):
+            if img_dist(img_dir + img_list[i], img_dir + img_list[i+j]) < 10:
+                s.add((i, i+j))
+            j = j + 1
+        i = i + 1
 
     print(s)
 
