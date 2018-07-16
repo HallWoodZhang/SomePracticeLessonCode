@@ -1,5 +1,6 @@
 !.gitignore
 
+
 *.pyc
 *.o
 *.so
@@ -11,6 +12,7 @@
 *.tar*
 *.log
 *.xml
+*.jpg
 
 neu-dataset/*
 */output/*
