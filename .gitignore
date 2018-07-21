@@ -13,6 +13,8 @@
 *.log
 *.xml
 *.jpg
+*.mp4
+*.png
 
 neu-dataset/*
 */output/*
