@@ -22,4 +22,5 @@ neu-dataset/*
 *.directory/*
 *.idea/*
 preproc/ds2018*
+preproc/tg2018*
 tensorflow*
