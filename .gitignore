@@ -21,3 +21,5 @@ neu-dataset/*
 .vscode/*
 *.directory/*
 *.idea/*
+preproc/ds2018*
+tensorflow*

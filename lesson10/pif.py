@@ -71,9 +71,6 @@ def inNeb_pix(r, c, rsz, csz, pif, k = 1):
             if pif[i, j] >= 0.5 :
                 res += 1.0
     return res/cnt
-    
-
-
 
 def get_nif_pixs(pif, k = 1):
     if pif is None:
@@ -95,12 +92,12 @@ def get_nif_pixs(pif, k = 1):
 
 
 if __name__ == "__main__":
-    gimg = io.imread('/home/hallwood/Code/devenv/PraticeLesson/neu-dataset/zebra/23ef4c8d-a169-3e23-a7bc-6620633a88cd.jpg', as_gray=True)
+    gimg = io.imread('/home/hallwood/Code/devenv/PracticeLesson/neu-dataset/elk/28300142306070143667457907044.jpg', as_gray=True)
     # gimg = img_as_ubyte(gimg)
     print(gimg[80:100, 80:100])
 
     tmp = np.array(gimg)
-    k = 100
+    k = 5
 
     io.imshow(gimg)
     io.show()
@@ -120,12 +117,11 @@ if __name__ == "__main__":
     rows, cols = gimg.shape
     for i in range(rows):
         for j in range(cols):
-            gimg[i, j] *= pif[i, j]
-            # if nif[i, j] >= 0.5 and pif[i,j] >= 0.5:
-            #     pass
-            # else:
-            #     tmp[i,j] = 0.0
+            
+            if nif[i, j] >= 0.5 and pif[i,j] >= 0.5:
+                pass
+            else:
+                tmp[i,j] = 0.0
     
-    io.imshow(gimg)
+    io.imshow(tmp)
     io.show()
-    
