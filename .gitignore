@@ -17,6 +17,7 @@
 *.png
 
 neu-dataset/*
+new_data/*
 */output/*
 .vscode/*
 *.directory/*
@@ -24,3 +25,7 @@ neu-dataset/*
 preproc/ds2018*
 preproc/tg2018*
 tensorflow*
+*model*
+*.pkl
+
+*demo*

@@ -3,9 +3,13 @@ import queue
 import numpy as np
 from skimage import io
 
-from TransImg.epsl import get_epsl
-from TransImg.pif import get_pif_matrix
-from TransImg.nif import get_nif_matrix
+from epsl import get_epsl
+from pif import get_pif_matrix
+from nif import get_nif_matrix
+
+# from TransImg.epsl import get_epsl
+# from TransImg.pif import get_pif_matrix
+# from TransImg.nif import get_nif_matrix
 
 def set_seed_queue(nif, pif, res, q):
     rsz, csz = nif.shape
@@ -29,19 +33,20 @@ def bfs_from_seed(seed_q, gimg, res, nif, pif):
     rsz, csz = nif.shape
     while seed_q.empty() is False:
         r, c = seed_q.get()
-        if cnt >= rsz*csz:
-            print("break!") 
-            break
+        # print([r,c])
+        if dr[r,c] is True:
+            continue
+        dr[r,c]=True
+        res[r,c]=gimg[r,c]
         for i in range(max(r-k, 0), min(r+k+1, rsz)):
             for j in range(max(c-k, 0), min(c+k+1, csz)):
-                if dr[i, j] is True:
-                    continue
-                dr[i, j] = True
-                if judge(i, j):
+                if judge(i, j)== True and dr[i,j]==False :
                     # print("in: ", i, " r, ", j, " c")
-                    cnt += 1
                     seed_q.put((i,j))
+                    cnt += 10
                     res[i, j] = gimg[i, j]
+                # if cnt%100 == 0:
+                #     print(seed_q.qsize())
     
         
 def get_merged_pif_nif_mat(gimg, nif, pif):
@@ -65,7 +70,9 @@ def get_merged_pif_nif_mat(gimg, nif, pif):
     return res
     
 if __name__ == "__main__":
-    gimg = io.imread('/home/hallwood/Code/devenv/PracticeLesson/preproc/ds2018/zebra/cf666628-8a31-11e8-b344-dc4a3ef6f9c4.jpg.jpg', as_gray=True)
+    gimg = io.imread('/home/hallwood/Code/devenv/PracticeLesson/preproc/ds2018/lion/066e0162-b2d4-466d-9c6f-259f59351ffc.jpg.jpg', as_gray=True)
+
+    
 
     io.imshow(gimg)
     io.show()
